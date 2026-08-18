@@ -22,13 +22,13 @@ export default function Navbar({ onStart, onRegister, onDashboard, isLoggedIn })
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'py-3 border-b border-[#7bcbb4]/20 shadow-lg backdrop-blur-md bg-[#13241d]/90 text-[#f5f0e8]'
+            ? 'py-3 border-b border-[#7bcbb4]/20 shadow-lg backdrop-blur-md bg-[#563fa1]/90 text-[#f5f0e8]'
             : 'py-5 bg-transparent text-[#f5f0e8]'
         }`}
       >
         <div className="max-w-6xl mx-auto px-8 flex items-center justify-between">
           {/* Logo / Brand */}
-          <a href="#" className="font-display text-xl font-semibold tracking-wider hover:text-[#7bcbb4] transition-colors">
+          <a href="#" className="font-display text-xl font-semibold tracking-wider hover:text-[#9290ba] transition-colors">
             Karina<span className="text-[#7bcbb4]">.dev</span>
           </a>
 
@@ -52,7 +52,7 @@ export default function Navbar({ onStart, onRegister, onDashboard, isLoggedIn })
           <button
             type="button"
             onClick={() => setMobileDrawerOpen(!mobileDrawerOpen)}
-            className="md:hidden p-2 focus:outline-none cursor-pointer text-[#f5f0e8] hover:text-[#7bcbb4]"
+            className="md:hidden p-2 focus:outline-none cursor-pointer text-[#f5f0e8] hover:text-[#2b5f50]"
             aria-label="Toggle mobile menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -73,14 +73,14 @@ export default function Navbar({ onStart, onRegister, onDashboard, isLoggedIn })
           onClick={() => setMobileDrawerOpen(false)}
         >
           <div
-            className="absolute top-20 left-4 right-4 bg-[#1a2e1f] border border-[#7bcbb4]/20 rounded-2xl p-6 shadow-xl space-y-4 text-[#f5f0e8]"
+            className="absolute top-20 left-4 right-4 bg-[#5b349f] border border-[#7bcbb4]/20 rounded-2xl p-6 shadow-xl space-y-4 text-[#f5f0e8]"
             onClick={(e) => e.stopPropagation()}
           >
             <nav className="flex flex-col space-y-3 font-medium">
               <a
                 href="#about"
                 onClick={() => setMobileDrawerOpen(false)}
-                className="py-2 hover:text-[#7bcbb4] transition-colors"
+                className="py-2 hover:text-[#7e72c7] transition-colors"
               >
                 About Me
               </a>
@@ -107,18 +107,7 @@ export default function Navbar({ onStart, onRegister, onDashboard, isLoggedIn })
               </a>
             </nav>
 
-            {onStart && (
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileDrawerOpen(false)
-                  onStart()
-                }}
-                className="w-full bg-[#7bcbb4] hover:bg-[#6ab9a3] text-[#13241d] py-3 rounded-full text-sm font-semibold transition-colors shadow-sm cursor-pointer mt-4"
-              >
-                Build My Journey →
-              </button>
-            )}
+
           </div>
         </div>
       )}

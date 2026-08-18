@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'motion/react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 /**
  * Cinematic 5-Stage Opening Intro for Portfolio
@@ -45,7 +45,7 @@ export default function IntroStory({ onComplete }) {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: 'easeInOut' }}
-      className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-[#13241d] text-[#f5f0e8] overflow-hidden px-6"
+      className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-[#563fa1] text-[#f5f0e8] overflow-hidden px-6"
     >
       {/* Skip Intro Button */}
       <button
@@ -72,12 +72,12 @@ export default function IntroStory({ onComplete }) {
           >
             <p className="font-display text-2xl md:text-4xl font-light leading-relaxed text-[#f5f0e8]/90">
               Hey, there <br />
-              <span className="italic text-[#7bcbb4]">I'm Karina</span>Software Developer?
+              <span className="italic text-[#7bcbb4]">I'm Karina</span> Fullstack Engineer?
             </p>
           </motion.div>
         )}
 
-        {/* Stage 02 — The First Step & Trail */}
+        {/* Stage 02 — The First Step*/}
         {stage === 2 && (
           <motion.div
             key="stage2"
@@ -87,34 +87,14 @@ export default function IntroStory({ onComplete }) {
             transition={{ duration: 1, ease: 'easeOut' }}
             className="text-center max-w-xl flex flex-col items-center gap-6"
           >
-            {/* Animated glowing footprint trail */}
-            <svg width="120" height="40" viewBox="0 0 120 40" fill="none" className="overflow-visible">
-              <motion.path
-                d="M 10 20 C 40 5, 80 35, 110 20"
-                stroke="#7bcbb4"
-                strokeWidth="2"
-                strokeDasharray="4 4"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 0.8 }}
-                transition={{ duration: 1.5, ease: 'easeInOut' }}
-              />
-              <motion.circle
-                cx="110"
-                cy="20"
-                r="4"
-                fill="#7bcbb4"
-                initial={{ scale: 0 }}
-                animate={{ scale: [0, 1.5, 1] }}
-                transition={{ delay: 1.3, duration: 0.4 }}
-              />
-            </svg>
-            <p className="font-display text-xl md:text-3xl font-light text-[#f5f0e8]/85 leading-relaxed">
+        
+        <p className="font-display text-xl md:text-3xl font-light text-[#f5f0e8]/85 leading-relaxed">
             Welcome to my Profile though..
             </p>
           </motion.div>
         )}
 
-        {/* Stage 03 — Introduce Paila */}
+        {/* Stage 03 — Introduce Me */}
         {stage === 3 && (
           <motion.div
             key="stage3"
@@ -125,7 +105,7 @@ export default function IntroStory({ onComplete }) {
             className="text-center max-w-lg"
           >
             <h1 className="font-display text-5xl md:text-7xl font-semibold tracking-wider text-[#f5f0e8] mb-4">
-              Let's get into it
+             BSc CSIT 6th Sem | Hardware & Web Tech
             </h1>
             <p className="font-mono text-xs md:text-sm tracking-widest uppercase text-[#7bcbb4]">
               Your friendly neighbour.
@@ -133,7 +113,7 @@ export default function IntroStory({ onComplete }) {
           </motion.div>
         )}
 
-        {/* Stage 04 — Paila Speaks */}
+        {/* Stage 04 */}
         {stage === 4 && (
           <motion.div
             key="stage4"
