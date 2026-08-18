@@ -7,7 +7,7 @@ import Hero from './pages/Hero'
   const [introFinished, setIntroFinished] = useState(false)
 
   return (
-  <div className="min-h-screen bg-[#160753] text-[#f5f0e8] selection:bg-[#274b41] selection:text-[#13241d]">
+  <div className="min-h-screen bg-[#140938] text-[#f5f0e8] selection:bg-[#274b41] selection:text-[#13241d]">
       {/* 1. Cinematic Intro Overlay */}
       {!introFinished && (
         <IntroStory onComplete={() => setIntroFinished(true)} />
