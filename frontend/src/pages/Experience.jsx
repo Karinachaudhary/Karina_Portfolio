@@ -140,7 +140,7 @@ export default function Experience() {
               <div key={exp.id} className="relative pl-6 md:pl-10 border-l-2 border-[#7bcbb4]/30 space-y-4 group">
                 
                 {/* Branch Node Indicator */}
-                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#13241d] border-2 border-[#7bcbb4] group-hover:bg-[#7bcbb4] transition-colors" />
+                <div className="absolute -left-2.25 top-0 w-4 h-4 rounded-full bg-[#13241d] border-2 border-[#7bcbb4] group-hover:bg-[#7bcbb4] transition-colors" />
 
                 {/* Log Header: Date & Tag */}
                 <div className="flex flex-wrap items-center justify-between gap-2">

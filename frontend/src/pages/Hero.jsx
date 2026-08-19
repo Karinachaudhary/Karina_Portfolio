@@ -111,13 +111,13 @@ export default function Hero() {
         <div className="lg:col-span-5 space-y-5 md:space-y-6 flex flex-col items-center lg:items-stretch w-full max-w-full">
           
           {/* 1. Photo in Glowing Frame */}
-          <div className="relative group w-full max-w-[260px] sm:max-w-[320px] lg:max-w-[340px] mx-auto">
-            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#7bcbb4] to-[#3d6b4f] opacity-40 blur-xl group-hover:opacity-75 transition duration-500" />
+          <div className="relative group w-full max-w-260px sm:max-w-[320px] lg:max-w-340px mx-auto">
+            <div className="absolute -inset-1 rounded-3xl bg-linear-to-r from-[#7bcbb4] to-[#3d6b4f] opacity-40 blur-xl group-hover:opacity-75 transition duration-500" />
             <div className="relative rounded-3xl overflow-hidden border-2 border-[#7bcbb4]/40 bg-[#1a2e1f]/80 p-2 shadow-2xl backdrop-blur-md">
               <img
                 src="/Karina.jpeg"
                 alt="Karina"
-                className="w-full h-[260px] sm:h-[320px] object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-260px sm:h-320px lg:h-340px object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function Hero() {
         </div>
         {/* RIGHT COLUMN: Interactive Terminal */}
         <div className="lg:col-span-7 w-full max-w-full">
-          <div className="rounded-2xl border border-[#7bcbb4]/30 bg-[#0d1813]/95 p-4 sm:p-5 shadow-2xl backdrop-blur-xl font-mono text-xs sm:text-sm h-[360px] sm:h-[440px] lg:h-[520px] landscape:min-h-[460px] flex flex-col justify-between w-full">
+          <div className="rounded-2xl border border-[#7bcbb4]/30 bg-[#0d1813]/95 p-4 sm:p-5 shadow-2xl backdrop-blur-xl font-mono text-xs sm:text-sm h-360px sm:h-440px lg:h-520px landscape:min-h-460px flex flex-col justify-between w-full">
             
             {/* Terminal Header */}
             <div className="flex items-center justify-between border-b border-[#7bcbb4]/20 pb-2.5">
@@ -186,7 +186,7 @@ export default function Hero() {
             {/* Scrollable History Output */}
             <div className="flex-1 overflow-y-auto my-3 space-y-2 pr-1.5 text-[11px] sm:text-xs md:text-sm">
               {history.map((item, idx) => (
-                <div key={idx} className={item.type === 'command' ? 'text-[#7bcbb4] font-semibold' : 'text-[#f5f0e8]/90 whitespace-pre-line break-words leading-relaxed'}>
+                <div key={idx} className={item.type === 'command' ? 'text-[#7bcbb4] font-semibold' : 'text-[#f5f0e8]/90 whitespace-pre-line wrap-break-word leading-relaxed'}>
                   {item.text}
                 </div>
               ))}

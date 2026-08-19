@@ -115,7 +115,7 @@ export default function Aboutme() {
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           onPointerCancel={handlePointerUp}
-          className="relative w-full h-[460px] sm:h-[500px] rounded-3xl border-2 border-[#7bcbb4]/30 overflow-hidden shadow-2xl select-none cursor-ew-resize bg-[#0d1813] touch-none"
+          className="relative w-full h-115 sm:h-125 rounded-3xl border-2 border-[#7bcbb4]/30 overflow-hidden shadow-2xl select-none cursor-ew-resize bg-[#0d1813] touch-none"
         >
           {/* RIGHT PANEL: LIFE (The Explorer) - Layer z-0 */}
           <div className="absolute inset-0 z-0 bg-[#162720] flex flex-col justify-between p-5 sm:p-8 text-[#f5f0e8]">
@@ -198,7 +198,7 @@ export default function Aboutme() {
                       }}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 pointer-events-none"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#13241d] via-transparent to-transparent flex flex-col justify-end p-2 text-left pointer-events-none">
+                    <div className="absolute inset-0 bg-linear-to-t from-[#13241d] via-transparent to-transparent flex flex-col justify-end p-2 text-left pointer-events-none">
                       <p className="font-bold text-[10px] sm:text-xs text-[#f5f0e8] truncate">{item.title}</p>
                       <p className="font-mono text-[9px] text-[#7bcbb4] truncate">{item.location}</p>
                     </div>
