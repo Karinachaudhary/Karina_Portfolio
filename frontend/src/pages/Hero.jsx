@@ -101,107 +101,113 @@ export default function Hero() {
   }
 
   return (
-    <section id="hero" className="min-h-[90vh] flex flex-col justify-center relative pt-12 pb-16">
+     <section id="hero" className="min-h-[85vh] w-full max-w-full overflow-x-hidden flex flex-col justify-center relative pt-20 sm:pt-24 md:pt-28 pb-12">
       
-      {/* Background Ambient Glow */}
-      <div className="absolute -top-10 left-1/4 w-96 h-96 bg-[#7bcbb4]/10 rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* Background Ambient Glow - Safely Centered */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-72 md:w-96 h-72 md:h-96 bg-[#7bcbb4]/10 rounded-full blur-[100px] md:blur-[140px] pointer-events-none" />
+      <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         
-        {/* Left Column: Headline & Bio */}
-        <div className="lg:col-span-6 space-y-6">
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#1a2e1f]/80 border border-[#7bcbb4]/30 backdrop-blur-md">
+        {/* LEFT COLUMN: Photo + Info + Bio */}
+        <div className="lg:col-span-5 space-y-5 md:space-y-6 flex flex-col items-center lg:items-stretch w-full max-w-full">
+          
+          {/* 1. Photo in Glowing Frame */}
+          <div className="relative group w-full max-w-[260px] sm:max-w-[320px] lg:max-w-[340px] mx-auto">
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#7bcbb4] to-[#3d6b4f] opacity-40 blur-xl group-hover:opacity-75 transition duration-500" />
+            <div className="relative rounded-3xl overflow-hidden border-2 border-[#7bcbb4]/40 bg-[#1a2e1f]/80 p-2 shadow-2xl backdrop-blur-md">
+              <img
+                src="/Karina.jpeg"
+                alt="Karina"
+                className="w-full h-[260px] sm:h-[320px] object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+          {/* 2. Status Badge */}
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-[#1a2e1f]/80 border border-[#7bcbb4]/30 backdrop-blur-md max-w-full">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7bcbb4] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#7bcbb4]"></span>
             </span>
-            <span className="font-mono text-xs text-[#7bcbb4] tracking-wider uppercase">
-              BSc CSIT 6th Sem • Open for Hackathons
+            <span className="font-mono text-[11px] sm:text-xs text-[#7bcbb4] tracking-wider uppercase truncate">
+              Fullstack Engineer & Hardware Tech
             </span>
           </div>
-
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
-            Building <span className="text-transparent bg-clip-text bg-linear-to-r from-[#7bcbb4] to-[#a7d4c5]">Fullstack Systems</span> & Hardware Tech
+          {/* 3. Headline with Blinking Cursor */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#f5f0e8] leading-tight">
+            hi, <span className="text-[#7bcbb4]">karina</span> here<span className="animate-pulse text-[#7bcbb4]">.│</span>
           </h1>
-
-          <p className="text-lg text-[#f5f0e8]/80 leading-relaxed">
-            Computer Science student striving for top-tier software architecture, hardware hacking, and competitive programming.
+          {/* 4. Subtitle */}
+          <p className="text-sm sm:text-base md:text-lg text-[#f5f0e8]/80 leading-relaxed max-w-xl">
+            BSc CSIT student (6th Sem) aiming for the serious tech engineers. I build high-performance web systems, love competitive programming, and experiment with hardware & IoT microcontrollers.
           </p>
-
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <a
-              href="#explore"
-              className="px-6 py-3.5 rounded-xl bg-[#7bcbb4] hover:bg-[#6ab9a3] text-[#13241d] font-semibold text-sm transition-all shadow-[0_0_20px_rgba(123,203,180,0.3)]"
-            >
-              Explore Projects 🚀
-            </a>
+          {/* 5. CTA Buttons */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
             <a
               href="#contact"
-              className="px-6 py-3.5 rounded-xl bg-[#1a2e1f]/80 hover:bg-[#2d523c] border border-[#7bcbb4]/30 text-[#f5f0e8] font-medium text-sm transition-all"
+              className="px-5 py-3 rounded-xl border-2 border-[#7bcbb4] text-[#7bcbb4] hover:bg-[#7bcbb4] hover:text-[#13241d] font-semibold text-xs sm:text-sm transition-all duration-300 shadow-[0_0_20px_rgba(123,203,180,0.2)] flex items-center gap-2"
             >
-              Contact Me
+              ✉️ Say hi!
+            </a>
+            <a
+              href="#explore"
+              className="px-5 py-3 rounded-xl bg-[#1a2e1f]/80 hover:bg-[#2d523c] border border-[#7bcbb4]/30 text-[#f5f0e8] font-medium text-xs sm:text-sm transition-all"
+            >
+              View Projects →
             </a>
           </div>
-
-          {/* Quick Metrics */}
-          <div className="grid grid-cols-3 gap-4 pt-8 border-t border-[#7bcbb4]/15">
+          {/* 6. Metrics */}
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 border-t border-[#7bcbb4]/15">
             <div>
-              <p className="text-2xl font-bold font-mono text-[#7bcbb4]">6th Sem</p>
-              <p className="text-xs text-[#a7d4c5]/70 font-mono">BSc CSIT</p>
+              <p className="text-base sm:text-lg font-bold font-mono text-[#7bcbb4]">6th Sem</p>
+              <p className="text-[10px] sm:text-xs text-[#f5f0e8]/60 font-mono">BSc CSIT</p>
             </div>
             <div>
-              <p className="text-2xl font-bold font-mono text-[#7bcbb4]">Top developer</p>
-              <p className="text-xs text-[#a7d4c5]/70 font-mono">Engineering Target</p>
+              <p className="text-base sm:text-lg font-bold font-mono text-[#7bcbb4]">Tech Girl</p>
+              <p className="text-[10px] sm:text-xs text-[#f5f0e8]/60 font-mono">Engineer Target</p>
             </div>
             <div>
-              <p className="text-2xl font-bold font-mono text-[#7bcbb4]">Fullstack</p>
-              <p className="text-xs text-[#a7d4c5]/70 font-mono">+ Hardware & IoT</p>
+              <p className="text-base sm:text-lg font-bold font-mono text-[#7bcbb4]">Fullstack</p>
+              <p className="text-[10px] sm:text-xs text-[#f5f0e8]/60 font-mono">+ Hardware IoT</p>
             </div>
           </div>
         </div>
-
-        {/* Right Column: Interactive Terminal */}
-        <div className="lg:col-span-6">
-          <div className="rounded-2xl border border-[#7bcbb4]/30 bg-[#0d1813]/95 p-5 shadow-2xl backdrop-blur-xl font-mono text-sm h-[420px] flex flex-col justify-between">
+        {/* RIGHT COLUMN: Interactive Terminal */}
+        <div className="lg:col-span-7 w-full max-w-full">
+          <div className="rounded-2xl border border-[#7bcbb4]/30 bg-[#0d1813]/95 p-4 sm:p-5 shadow-2xl backdrop-blur-xl font-mono text-xs sm:text-sm h-[360px] sm:h-[440px] lg:h-[520px] landscape:min-h-[460px] flex flex-col justify-between w-full">
             
             {/* Terminal Header */}
-            <div className="flex items-center justify-between border-b border-[#7bcbb4]/20 pb-3">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                <div className="w-3 h-3 rounded-full bg-green-500/80" />
+            <div className="flex items-center justify-between border-b border-[#7bcbb4]/20 pb-2.5">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80" />
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80" />
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80" />
               </div>
-              <span className="text-xs text-[#a7d4c5]/60">karina@dev-terminal:~</span>
+              <span className="text-[10px] sm:text-xs text-[#a7d4c5]/60 font-mono">karina@dev-terminal:~</span>
             </div>
-
             {/* Scrollable History Output */}
-            <div className="flex-1 overflow-y-auto my-3 space-y-2 pr-2 text-xs md:text-sm">
+            <div className="flex-1 overflow-y-auto my-3 space-y-2 pr-1.5 text-[11px] sm:text-xs md:text-sm">
               {history.map((item, idx) => (
-                <div key={idx} className={item.type === 'command' ? 'text-[#7bcbb4] font-semibold' : 'text-[#f5f0e8]/90 whitespace-pre-line'}>
+                <div key={idx} className={item.type === 'command' ? 'text-[#7bcbb4] font-semibold' : 'text-[#f5f0e8]/90 whitespace-pre-line break-words leading-relaxed'}>
                   {item.text}
                 </div>
               ))}
               <div ref={terminalEndRef} />
             </div>
-
             {/* Terminal Input Form */}
-            <form onSubmit={handleCommand} className="flex items-center gap-2 border-t border-[#7bcbb4]/20 pt-3">
-              <span className="text-[#7bcbb4] font-bold">$</span>
+            <form onSubmit={handleCommand} className="flex items-center gap-2 border-t border-[#7bcbb4]/20 pt-2.5">
+              <span className="text-[#7bcbb4] font-bold text-xs sm:text-sm">$</span>
               <input
                 type="text"
                 value={inputVal}
                 onChange={(e) => setInputVal(e.target.value)}
-                placeholder="type 'help', 'whoami', 'skills', 'projects'..."
-                className="flex-1 bg-transparent text-[#f5f0e8] focus:outline-none font-mono text-xs md:text-sm placeholder-[#a7d4c5]/40"
+                placeholder="type 'help', 'whoami', 'skills'..."
+                className="flex-1 bg-transparent text-[#f5f0e8] focus:outline-none font-mono text-[11px] sm:text-xs md:text-sm placeholder-[#a7d4c5]/40 min-w-0"
               />
-              <button type="submit" className="text-xs text-[#7bcbb4] hover:underline cursor-pointer">
+              <button type="submit" className="text-[10px] sm:text-xs text-[#7bcbb4] hover:underline cursor-pointer font-medium px-2 py-1 rounded bg-[#7bcbb4]/10 hover:bg-[#7bcbb4]/20">
                 Send ↵
               </button>
             </form>
-
           </div>
         </div>
-
       </div>
     </section>
   )
