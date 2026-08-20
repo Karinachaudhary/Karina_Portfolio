@@ -5,7 +5,7 @@ export default function Experience() {
 
   const stats = [
     { value: '5+', label: 'Projects Built' },
-    { value: '3', label: 'Hackathons / Events' },
+    { value: '3', label: 'Events/ Hackathons' },
     { value: '8+', label: 'Tech Explored' },
     { value: '∞', label: 'Things Still Learning' },
   ]

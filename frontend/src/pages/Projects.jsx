@@ -9,13 +9,13 @@ export default function Projects() {
     {
       id: 'paila',
       category: 'featured',
-      badge: '🏆 Hackathon Winner',
+      badge: 'Hackathon',
       title: 'Paila — Tourism & Discovery Platform',
       shortDesc: 'Collaborative tourism platform built during a 24-hour hackathon sprint.',
       tech: ['React', 'Node.js', 'MongoDB', 'AI', 'Maps API'],
       liveUrl: 'https://github.com/Karinachaudhary/Paila_with_You',
       githubUrl: 'https://github.com/Karinachaudhary/Paila_with_You',
-      screenshots: ['/paila1.png', '/paila2.png', '/paila3.png', '/hike.jpg'],
+      // screenshots: ['/paila1.png', '/paila2.png', '/paila3.png', '/hike.jpg'],
       caseStudy: {
         problem: 'Travelers often struggle to discover authentic local Nepalese trails and experiences due to scattered information and unreliable guides.',
         idea: 'An interactive tourism platform providing curated local trails, real-time map navigation, and community recommendations.',
@@ -36,7 +36,7 @@ export default function Projects() {
       tech: ['React', 'Node.js', 'AI Vision API', 'Tailwind CSS'],
       liveUrl: '#',
       githubUrl: 'https://github.com/Karinachaudhary',
-      screenshots: ['/image.png', '/lake.jpg'],
+      // screenshots: ['/image.png', '/lake.jpg'],
       caseStudy: {
         problem: 'Improper waste segregation damages recycling efficiency in urban communities.',
         idea: 'A mobile web app using computer vision to instantly identify waste types (organic, plastic, metal) and provide proper disposal instructions.',
@@ -57,7 +57,7 @@ export default function Projects() {
       tech: ['React', 'Node.js', 'Express', 'PostgreSQL', 'JWT'],
       liveUrl: '#',
       githubUrl: 'https://github.com/Karinachaudhary/Librarylynx',
-      screenshots: ['/book1.jpg', '/book2.jpg'],
+      screenshots: ['/projects/liblynx1.jpg', '/projects/liblynx2.jpg'],
       caseStudy: {
         problem: 'Manual college library record-keeping caused frequent book misplacements and slow checkout queues.',
         idea: 'A role-based digital library system for students and librarians with automated return reminders and inventory search.',
@@ -99,21 +99,22 @@ export default function Projects() {
       desc: 'Exploring C# dependency injection, DTOs, and Entity Framework ORM.',
       tech: 'C# / .NET',
       link: 'https://github.com/Karinachaudhary'
-    },
-    {
-      title: 'Gemini AI Prototype',
-      domain: 'AI & LLM Tooling',
-      desc: 'Testing contextual prompt engineering and streaming responses in web apps.',
-      tech: 'React / Gemini API',
-      link: 'https://github.com/Karinachaudhary'
-    },
-    {
-      title: 'Motion UI Physics',
-      domain: 'UI / UX Interaction',
-      desc: 'Building custom pointer-captured draggable canvas components.',
-      tech: 'Framer Motion / Canvas',
-      link: 'https://github.com/Karinachaudhary'
     }
+    // ,
+    // {
+    //   title: 'Gemini AI Prototype',
+    //   domain: 'AI & LLM Tooling',
+    //   desc: 'Testing contextual prompt engineering and streaming responses in web apps.',
+    //   tech: 'React / Gemini API',
+    //   link: 'https://github.com/Karinachaudhary'
+    // },
+    // {
+    //   title: 'Motion UI Physics',
+    //   domain: 'UI / UX Interaction',
+    //   desc: 'Building custom pointer-captured draggable canvas components.',
+    //   tech: 'Framer Motion / Canvas',
+    //   link: 'https://github.com/Karinachaudhary'
+    // }
   ]
 
   const filteredProjects = activeTab === 'all'
@@ -206,14 +207,14 @@ export default function Projects() {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 border-t border-[#7bcbb4]/15 flex items-center justify-between font-mono text-xs">
-                <button
+               <div className="pt-4 border-t border-[#7bcbb4]/15 flex items-center justify-between font-mono text-xs">
+                {/* <button
                   type="button"
                   onClick={() => setSelectedCaseStudy(project)}
                   className="px-4 py-2 rounded-xl bg-[#7bcbb4] hover:bg-[#6ab9a3] text-[#13241d] font-bold transition-all shadow-sm cursor-pointer flex items-center gap-1.5"
                 >
                   <span>Read Case Study 📖</span>
-                </button>
+                </button>  */}
 
                 <a
                   href={project.githubUrl}
