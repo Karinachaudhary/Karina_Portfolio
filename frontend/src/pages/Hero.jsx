@@ -8,12 +8,14 @@ export default function Hero() {
     { type: 'output', text: 'Type "help" to see available commands.' }
   ])
 
-  const terminalEndRef = useRef(null)
+  const terminalOutputRef = useRef(null)
 
-  // Auto-scroll terminal to bottom when output changes
-  useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [history])
+  // ✅ Scroll ONLY inside the terminal container (no page scrolling!)
+useEffect(() => {
+  if (terminalOutputRef.current) {
+    terminalOutputRef.current.scrollTop = terminalOutputRef.current.scrollHeight
+  }
+}, [history])
 
   // Handle Command Submission
   const handleCommand = (e) => {
@@ -111,13 +113,13 @@ export default function Hero() {
         <div className="lg:col-span-5 space-y-5 md:space-y-6 flex flex-col items-center lg:items-stretch w-full max-w-full">
           
           {/* 1. Photo in Glowing Frame */}
-          <div className="relative group w-full max-w-260px sm:max-w-[320px] lg:max-w-340px mx-auto">
-            <div className="absolute -inset-1 rounded-3xl bg-linear-to-r from-[#7bcbb4] to-[#3d6b4f] opacity-40 blur-xl group-hover:opacity-75 transition duration-500" />
+          <div className="relative group w-full max-w-[260px] sm:max-w-[320px] lg:max-w-[340px] mx-auto">
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#7bcbb4] to-[#3d6b4f] opacity-40 blur-xl group-hover:opacity-75 transition duration-500" />
             <div className="relative rounded-3xl overflow-hidden border-2 border-[#7bcbb4]/40 bg-[#1a2e1f]/80 p-2 shadow-2xl backdrop-blur-md">
               <img
                 src="/Karina.jpeg"
                 alt="Karina"
-                className="w-full h-260px sm:h-320px lg:h-340px object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-[260px] sm:h-[320px] object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
@@ -172,10 +174,10 @@ export default function Hero() {
         </div>
         {/* RIGHT COLUMN: Interactive Terminal */}
         <div className="lg:col-span-7 w-full max-w-full">
-          <div className="rounded-2xl border border-[#7bcbb4]/30 bg-[#0d1813]/95 p-4 sm:p-5 shadow-2xl backdrop-blur-xl font-mono text-xs sm:text-sm h-360px sm:h-440px lg:h-520px landscape:min-h-460px flex flex-col justify-between w-full">
+          <div className="rounded-2xl border border-[#7bcbb4]/30 bg-[#0d1813]/95 p-4 sm:p-5 shadow-2xl backdrop-blur-xl font-mono text-xs sm:text-sm h-[380px] max-h-[380px] sm:h-150 sm:max-h-130 flex flex-col justify-between overflow-hidden w-full">
             
             {/* Terminal Header */}
-            <div className="flex items-center justify-between border-b border-[#7bcbb4]/20 pb-2.5">
+            <div className="flex items-center justify-between border-b border-[#7bcbb4]/20 pb-2.5 shrink-0">
               <div className="flex items-center gap-1.5 sm:gap-2">
                 <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80" />
                 <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80" />
@@ -183,31 +185,33 @@ export default function Hero() {
               </div>
               <span className="text-[10px] sm:text-xs text-[#a7d4c5]/60 font-mono">karina@dev-terminal:~</span>
             </div>
-            {/* Scrollable History Output */}
-            <div className="flex-1 overflow-y-auto my-3 space-y-2 pr-1.5 text-[11px] sm:text-xs md:text-sm">
-              {history.map((item, idx) => (
-                <div key={idx} className={item.type === 'command' ? 'text-[#7bcbb4] font-semibold' : 'text-[#f5f0e8]/90 whitespace-pre-line wrap-break-word leading-relaxed'}>
-                  {item.text}
-                </div>
-              ))}
-              <div ref={terminalEndRef} />
-            </div>
-            {/* Terminal Input Form */}
-            <form onSubmit={handleCommand} className="flex items-center gap-2 border-t border-[#7bcbb4]/20 pt-2.5">
-              <span className="text-[#7bcbb4] font-bold text-xs sm:text-sm">$</span>
-              <input
-                type="text"
-                value={inputVal}
-                onChange={(e) => setInputVal(e.target.value)}
-                placeholder="type 'help', 'whoami', 'skills'..."
-                className="flex-1 bg-transparent text-[#f5f0e8] focus:outline-none font-mono text-[11px] sm:text-xs md:text-sm placeholder-[#a7d4c5]/40 min-w-0"
-              />
-              <button type="submit" className="text-[10px] sm:text-xs text-[#7bcbb4] hover:underline cursor-pointer font-medium px-2 py-1 rounded bg-[#7bcbb4]/10 hover:bg-[#7bcbb4]/20">
-                Send ↵
-              </button>
-            </form>
-          </div>
+            {/* Scrollable History Output - Added ref={terminalOutputRef} */}
+<div
+      ref={terminalOutputRef}
+      className="flex-1 min-h-0 overflow-y-auto my-2 space-y-2 pr-1.5 text-[11px] sm:text-xs md:text-sm"
+    >
+      {history.map((item, idx) => (
+        <div key={idx} className={item.type === 'command' ? 'text-[#7bcbb4] font-semibold' : 'text-[#f5f0e8]/90 whitespace-pre-line break-words leading-relaxed'}>
+          {item.text}
         </div>
+      ))}
+    </div>
+            {/* Terminal Input Form */}
+           <form onSubmit={handleCommand} className="flex items-center gap-2 border-t border-[#7bcbb4]/20 pt-2.5 shrink-0">
+      <span className="text-[#7bcbb4] font-bold text-xs sm:text-sm">$</span>
+      <input
+        type="text"
+        value={inputVal}
+        onChange={(e) => setInputVal(e.target.value)}
+        placeholder="type 'help', 'whoami', 'skills'..."
+        className="flex-1 bg-transparent text-[#f5f0e8] focus:outline-none font-mono text-[11px] sm:text-xs md:text-sm placeholder-[#a7d4c5]/40 min-w-0"
+      />
+      <button type="submit" className="text-[10px] sm:text-xs text-[#7bcbb4] hover:underline cursor-pointer font-medium px-2 py-1 rounded bg-[#7bcbb4]/10 hover:bg-[#7bcbb4]/20">
+        Send ↵
+      </button>
+    </form>
+  </div>
+</div>
       </div>
     </section>
   )
