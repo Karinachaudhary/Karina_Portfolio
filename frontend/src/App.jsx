@@ -5,6 +5,9 @@ import IntroStory from './components/IntroStory'
 import Hero from './pages/Hero'
 import Aboutme from './pages/Aboutme'
 import Experience from './pages/Experience'
+import Contact from './pages/Contact'
+import Projects from './pages/Projects'
+import Footer from './components/Footer'
  export default function App() {
   const [introFinished, setIntroFinished] = useState(false)
 
@@ -19,6 +22,9 @@ import Experience from './pages/Experience'
         <Hero />
         <Aboutme />
         <Experience />
+        <Projects />
+        <Contact />
+        <Footer />
 
     </div>
   )
